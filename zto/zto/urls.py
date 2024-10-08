@@ -21,5 +21,7 @@ from ztoweb import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('ztoweb.urls'))
+    path('', include('ztoweb.urls')),
+    path('api/', include('ztoapi.urls')),
+    path('api-auth/', include('rest_framework.urls'))
 ]

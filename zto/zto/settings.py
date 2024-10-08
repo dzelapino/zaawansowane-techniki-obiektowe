@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ztoweb'
+    'rest_framework',
+    'ztoweb',
+    'ztoapi'
 ]
 
 MIDDLEWARE = [
