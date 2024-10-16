@@ -1,0 +1,7 @@
+@use "sizing" as s;
+
+@mixin flex-layout($direction) {
+  display: flex;
+  flex-direction: $direction;
+  gap: s.$default-gap-size;
+}

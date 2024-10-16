@@ -1,0 +1,8 @@
+@use "colors" as c;
+@use "layout" as l;
+@use "sizing" as s;
+
+@mixin text-parallax {
+  color: c.$dzelapino-blue;
+  text-shadow: 2px 3px c.$dzelapino-pink;
+}

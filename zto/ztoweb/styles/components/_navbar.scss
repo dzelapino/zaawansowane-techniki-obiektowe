@@ -1,0 +1,11 @@
+@use "../vars/colors" as c;
+@use "../vars/layout" as l;
+@use "../vars/sizing" as s;
+
+.navbar {
+  @include l.flex-layout(row);
+  padding: s.$default-padding-size;
+  background: c.$dzelapino-white;
+  border-radius: s.$default-border-radius;
+  width: 100%;
+}

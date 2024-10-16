@@ -1,0 +1,9 @@
+@use "../vars/colors" as c;
+@use "../vars/layout" as l;
+@use "../vars/sizing" as s;
+@use "../vars/lapino" as la;
+
+.footer > span {
+  @include la.text-parallax();
+  font-size: s.$font-size-smaller;
+}

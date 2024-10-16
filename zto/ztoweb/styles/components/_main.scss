@@ -1,0 +1,24 @@
+@use "../vars/colors" as c;
+@use "../vars/layout" as l;
+@use "../vars/sizing" as s;
+
+html {
+  @include l.flex-layout(column);
+
+  margin: 0;
+  background: c.$dzelapino-black;
+  color: c.$dzelapino-white;
+  height: 100vh;
+  align-items: center;
+}
+
+body {
+  @include l.flex-layout(column);
+  width: min(90%, 1600px);
+
+  margin: 0;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: s.$default-padding-size;
+}

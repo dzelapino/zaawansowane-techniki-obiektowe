@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,34 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
       {% block title %}
-        Django App
+        dzelapp
       {% endblock %}
     </title>
-    <link href=../styles/base.css rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
   </head>
 
   <body>
-{#  TODO #}
-{#    <nav class="">#}
-{#      <a class="navbar-brand" href="#">My Django App</a>#}
-{#      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>#}
-{#      <div class="collapse navbar-collapse" id="navbarNav">#}
-{#        <ul class="navbar-nav">#}
-{#          <li class="nav-item active">#}
-{#            <a class="nav-link" href="#">Home</a>#}
-{#          </li>#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="#">About</a>#}
-{#          </li>#}
-{#          <li class="nav-item">#}
-{#            <a class="nav-link" href="#">Contact</a>#}
-{#          </li>#}
-{#        </ul>#}
-{#      </div>#}
-{#    </nav>#}
+    <nav class="navbar">
+      <a class="navbar-brand" href="#">dzelapino</a>
+
+      <button type="button" onclick="myFunction()"><span>TOGGLE NAV</span></button>
+      <div class="navbar-panel navbar-panel-hidden" id="navbarPanel">
+            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="#">Contact</a>
+      </div>
+    </nav>
 
     <div class="container">{% block content %} {% endblock %}</div>
 
-    <script src="../scripts/base.js"></script>
+    <div class="footer">
+        <span>Made by dzelapino sp. zło</span>
+    </div>
+
+    <script src="{% static 'base.js' %}"></script>
   </body>
 </html>
