@@ -12,18 +12,29 @@
     </title>
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"/>
     <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
   </head>
 
   <body>
-    <nav class="navbar">
+    <nav id="navbar" class="navbar navbar-wrapped">
       <a class="navbar-brand" href="#">dzelapino</a>
 
-      <button type="button" onclick="myFunction()"><span>TOGGLE NAV</span></button>
-      <div class="navbar-panel navbar-panel-hidden" id="navbarPanel">
-            <a class="nav-link" href="#">Home</a>
-            <a class="nav-link" href="#">About</a>
-            <a class="nav-link" href="#">Contact</a>
-      </div>
+        <div class="navbar-content">
+
+          <button type="button" onclick="navbarToggle()" class="navbar-content-button">
+              <span class="material-symbols-outlined navbar-button__show-navbar-nav">unfold_more</span>
+              <span class="material-symbols-outlined navbar-button__hide-navbar-nav">unfold_less</span>
+          </button>
+
+          <div class="navbar-panel" id="navbarPanel">
+                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#">Contact</a>
+          </div>
+            <span>
+                USERNAME
+            </span>
+        </div>
     </nav>
 
     <div class="container">{% block content %} {% endblock %}</div>

@@ -1,11 +1,138 @@
 @use "../vars/colors" as c;
 @use "../vars/layout" as l;
 @use "../vars/sizing" as s;
+@use "../vars/lapino" as la;
 
 .navbar {
   @include l.flex-layout(row);
+
   padding: s.$default-padding-size;
-  background: c.$dzelapino-white;
+  background: c.$dzelapino-black;
   border-radius: s.$default-border-radius;
+  width: 50%;
+
+  animation-name: navbar-init;
+  animation-duration: 1s;
+}
+
+.navbar > .navbar-content {
+  @include l.flex-layout(row);
+
+  animation-name: navbar-content-init;
+  animation-duration: 1.2s;
+}
+
+.navbar.navbar-wrapped > .navbar-content > .navbar-panel {
+  display: none;
+}
+
+.navbar > .navbar-brand {
+  text-decoration: none;
+  font-size: 1.5rem;
+  color: c.$dzelapino-white;
+  font-weight: bold;
+}
+
+.navbar > .navbar-brand:hover {
+  @include la.text-parallax;
+}
+
+.navbar > .navbar-content > .navbar-content-button {
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 1.5rem;
+  border-radius: s.$default-border-radius;
+  border: none;
+  background: c.$dzelapino-white;
+
+  > span {
+    color: c.$dzelapino-pink;
+    font-weight: bold;
+    transform: rotate(90deg);
+    font-size: 1.5rem;
+  }
+}
+
+.navbar > .navbar-content > .navbar-content-button:hover {
+  cursor: pointer;
+
+  > span {
+    color: c.$dzelapino-blue;
+  }
+}
+
+.navbar.navbar-wrapped > .navbar-content {
+
+  > .navbar-content-button > .navbar-button__hide-navbar-nav {
+    display: none;
+  }
+}
+
+.navbar.navbar-unwrapped > .navbar-content {
+
+  > .navbar-content-button  > span.navbar-button__show-navbar-nav {
+    display: none;
+  }
+
+  > .navbar-content-button > .navbar-button__hide-navbar-nav,
+  > div.navbar-panel {
+    display: flex;
+  }
+}
+
+.navbar-play-widen-anim {
   width: 100%;
+
+  animation-name: navbar-widen;
+  animation-duration: 1s;
+}
+
+.navbar-play-narrow-anim {
+  width: 50%;
+
+  animation-name: navbar-narrow;
+  animation-duration: 1s;
+}
+
+@keyframes navbar-init {
+  0% {
+    width: 20%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes navbar-widen {
+  0% {
+    width: 50%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes navbar-narrow {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 50%;
+  }
+}
+
+@keyframes navbar-content-init {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'djoser',
+    'django_material_icons',
     'ztoweb',
     'ztoapi'
 ]
