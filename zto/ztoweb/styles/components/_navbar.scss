@@ -10,6 +10,7 @@
   background: c.$dzelapino-black;
   border-radius: s.$default-border-radius;
   width: 50%;
+  justify-content: space-between;
 
   animation-name: navbar-init;
   animation-duration: 1s;
@@ -17,13 +18,21 @@
 
 .navbar > .navbar-content {
   @include l.flex-layout(row);
-
-  animation-name: navbar-content-init;
-  animation-duration: 1.2s;
 }
 
-.navbar.navbar-wrapped > .navbar-content > .navbar-panel {
+.navbar > .navbar-content > .navbar-panel {
   display: none;
+}
+
+.navbar > .navbar-content > .navbar-panel {
+  display: flex;
+  gap: s.$default-gap-size;
+
+  > a {
+    color: c.$dzelapino-white;
+    font-size: 0;
+    text-decoration: none;
+  }
 }
 
 .navbar > .navbar-brand {
@@ -90,6 +99,29 @@
   animation-duration: 1s;
 }
 
+.navbar-play-widen-anim > .navbar-content > .navbar-panel > a {
+  font-size: 0;
+  text-decoration: none;
+}
+
+.navbar-play-widen-anim > .navbar-content > .navbar-panel > a:hover {
+  @include la.text-parallax;
+}
+
+.navbar-play-widen-anim > .navbar-content > .navbar-panel > .nav-link {
+  font-size: 12px;
+
+  animation-name: navbar-widen-nav-links;
+  animation-duration: 1.2s;
+}
+
+.navbar-play-narrow-anim > .navbar-content > .navbar-panel > .nav-link {
+  font-size: 0;
+
+  animation-name: navbar-narrow-nav-links;
+  animation-duration: 1.2s;
+}
+
 .navbar-play-narrow-anim {
   width: 50%;
 
@@ -127,12 +159,22 @@
   }
 }
 
-@keyframes navbar-content-init {
+@keyframes navbar-widen-nav-links {
   0% {
-    opacity: 0;
+    font-size: 0;
   }
 
   100% {
-    opacity: 1;
+    font-size: 12px;
+  }
+}
+
+@keyframes navbar-narrow-nav-links {
+  0% {
+    font-size: 12px;
+  }
+
+  100% {
+    font-size: 0;
   }
 }
