@@ -22,3 +22,11 @@ body {
   align-items: center;
   padding: s.$default-padding-size;
 }
+
+.content-container {
+  @include l.flex-layout(column);
+
+  padding: s.$default-padding-size;
+  flex-grow: 1;
+  width: 100%;
+}
