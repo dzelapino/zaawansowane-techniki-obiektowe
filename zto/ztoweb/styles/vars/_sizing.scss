@@ -2,6 +2,11 @@ $default-spacing-value: 0.5rem;
 $default-gap-size: $default-spacing-value;
 $default-padding-size: $default-spacing-value;
 $default-border-radius: 25px;
+$default-border-size: 3px;
+$default-long-button-width: min(50%, 200px);
+$default-small-button-width: 50px;
+$default-button-height: 50px;
 
-$font-size-larger: 1.2rem;
-$font-size-smaller: 0.8rem;
+$font-size-huge: 2.5rem;
+$font-size-larger: 1.6rem;
+$font-size-smaller: 1.2rem;

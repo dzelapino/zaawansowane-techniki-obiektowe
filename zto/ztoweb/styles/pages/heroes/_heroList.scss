@@ -1,0 +1,53 @@
+// TODO reuse me as stylesheet used directly in my page
+
+@use "../../vars/colors" as c;
+@use "../../vars/layout" as l;
+@use "../../vars/sizing" as s;
+@use "../../vars/lapino" as la;
+
+.slides > .hero-tile {
+  @include l.flex-layout(column);
+
+  justify-content: space-around;
+  background: c.$dzelapino-black;
+
+  .hero-name {
+    font-size: s.$font-size-huge;
+    font-weight: bold;
+  }
+
+  .hero-about {
+    font-size: s.$font-size-smaller;
+  }
+
+  .hero-name,
+  .hero-about {
+    text-shadow: c.$dzelapino-black 2px 2px 1px;
+  }
+
+  .hero-details-anchor {
+    @include l.flex-layout(row);
+    justify-content: center;
+
+    text-decoration: none;
+    color: c.$dzelapino-pink;
+    background: c.$dzelapino-white;
+    border-radius: s.$default-border-radius;
+    width: s.$default-long-button-width;
+    height: s.$default-button-height;
+    border: solid c.$dzelapino-pink s.$default-border-size;
+    text-transform: capitalize;
+  }
+
+  .hero-details-anchor:hover {
+    @include la.text-parallax;
+
+    border-color: c.$dzelapino-blue;
+  }
+
+  .hero-alignment-bar {
+    width: 80%;
+    height: 1rem;
+    border-radius: s.$default-border-radius;
+  }
+}

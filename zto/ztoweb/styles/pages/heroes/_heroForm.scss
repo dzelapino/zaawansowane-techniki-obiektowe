@@ -1,0 +1,75 @@
+// TODO reuse me as stylesheet used directly in my page
+
+@use "../../vars/colors" as c;
+@use "../../vars/layout" as l;
+@use "../../vars/sizing" as s;
+@use "../../vars/lapino" as la;
+
+.create-hero-form {
+  @include l.flex-layout(column);
+
+  justify-content: space-evenly;
+  background: c.$dzelapino-black;
+  flex-grow: 1;
+  padding: s.$default-padding-size;
+  border-radius: s.$default-border-radius;
+  width: min(600px, 80%);
+
+  > h2,
+  > p > label {
+    @include la.text-parallax;
+
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  > p {
+    @include l.flex-layout(column);
+    width: 100%;
+
+    margin: 0;
+    padding: s.$default-padding-size;
+  }
+
+  > p > input,
+  > p > textarea {
+    width: 90%;
+    background: transparent;
+    color: c.$dzelapino-green;
+    height: 30px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid c.$dzelapino-pink s.$default-border-size;
+    text-align: center;
+    font-size: s.$font-size-larger;
+  }
+
+  > p > input:focus,
+  > p > textarea:focus {
+    border-color: c.$dzelapino-blue;
+  }
+
+   > p > input:focus-visible,
+   > p > textarea:focus-visible {
+     outline: none;
+   }
+
+  > input {
+    height: s.$default-button-height;
+    width: s.$default-long-button-width;
+    border-radius: s.$default-border-radius;
+    background: c.$dzelapino-white;
+    border: solid c.$dzelapino-pink s.$default-border-size;
+    color: c.$dzelapino-pink;
+    font-weight: bold;
+    font-size: s.$font-size-larger;
+  }
+
+  > input:hover {
+    @include la.text-parallax;
+
+    cursor: pointer;
+    border-color: c.$dzelapino-blue;
+  }
+}

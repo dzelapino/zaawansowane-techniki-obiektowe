@@ -1,0 +1,33 @@
+{% extends "base.html" %} {% block title %} dzelapino {% endblock %}
+{% block content %}
+
+    <div class="home-page__content-wrapper slider">
+        <div class="slides">
+            {% for hero in heroes %}
+                <div class="hero-tile slide">
+                    <div class="hero-alignment-bar" style="background: {{ hero.color }};"></div>
+
+                    <span class="hero-name">
+                        {{ hero.name }}
+                    </span>
+
+                    <span class="hero-about">
+                        {{ hero.about }}
+                    </span>
+
+                    <a href="/heroes/{{ hero.id }}" class="hero-details-anchor">
+                        <span>More details</span>
+                    </a>
+
+                    <div class="hero-alignment-bar" style="background: {{ hero.color }};"></div>
+                </div>
+
+            {% empty %}
+                <div class="home-page__content-mock slide-empty">
+                    EMPTY
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
