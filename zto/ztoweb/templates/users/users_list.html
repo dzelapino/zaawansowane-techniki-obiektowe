@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %} dzelapino {% endblock %}
+{% block content %}
+
+    <div class="home-page__content-wrapper slider">
+        <div class="slides">
+            {% for user in users %}
+                <div class="hero-tile slide">
+                    <span class="hero-name">
+                        {{ user.name }}
+                    </span>
+                </div>
+
+            {% empty %}
+                <div class="home-page__content-mock slide-empty">
+                    EMPTY
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}
