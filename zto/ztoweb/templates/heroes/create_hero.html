@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} dzelapino {% endblock %}
 {% block content %}
 
-    <form method="POST" enctype="multipart/form-data" class="create-hero-form" action="/heroes">
+    <form method="POST" enctype="multipart/form-data" class="create-hero-form">
         <h2>Hero creation</h2>
 
         {% csrf_token %}

@@ -17,10 +17,12 @@ def heroes(request):
 
 def create_hero(request):
     context = {}
-
     form = HeroForm(request.POST or None)
-    if form.is_valid():
-        form.save()
+
+    if request.method == "POST":
+        if form.is_valid():
+            form.save()
+            return redirect('heroes')
 
     context['form'] = form
     return render(request, "heroes/create_hero.html", context)
