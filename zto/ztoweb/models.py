@@ -22,3 +22,13 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     def __str__(self):
         return self.name
+
+class Profile(models.Model):
+    login = models.CharField(max_length=8, unique=True)
+    password = models.CharField(max_length=8)
+
+    def check_password(self, password):
+        return self.password == password
+
+    def __str__(self):
+        return self.login

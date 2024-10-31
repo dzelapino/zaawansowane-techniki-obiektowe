@@ -3,8 +3,8 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
 
-from ztoweb.forms import HeroForm
-from ztoweb.models import Hero, User
+from ztoweb.forms import HeroForm, ProfileForm, LoginForm
+from ztoweb.models import Hero, User, Profile
 
 
 # Create your views here.
@@ -33,17 +33,29 @@ def hero_details(request, id):
     context['hero'] = Hero.objects.get(id=id)
     return render(request, "heroes/hero_view.html", context)
 
-def users(request):
-    user_list = User.objects.all()
-    return render(request, "users/users_list.html", {"users":user_list})
+def profiles(request):
+    profile_list = Profile.objects.all()
+    return render(request, "profiles/profile_list.html", {"profiles":profile_list})
 
-def register_user(request):
+def register(request):
+    context = {}
+    form = ProfileForm(request.POST or None)
+
     if request.method == "POST":
-        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect("heroes")
-    else:
-        form = UserCreationForm()
+            return redirect('profiles')
 
-    return render(request, "users/register.html", {"form": form})
+    context['form'] = form
+    return render(request, "profiles/register_profile.html", context)
+
+def login(request):
+    context = {}
+    form = LoginForm(request.POST or None)
+
+    if request.method == "POST":
+        if form.is_valid():
+            return redirect('home')
+
+    context['form'] = form
+    return render(request, "profiles/profile_login.html", context)
