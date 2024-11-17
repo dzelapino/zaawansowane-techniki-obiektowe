@@ -1,7 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm
+from pyexpat.errors import messages
+
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
+from django.contrib.auth import login, authenticate, logout
 
 from ztoweb.forms import HeroForm, ProfileForm, LoginForm
 from ztoweb.models import Hero, User, Profile
@@ -49,13 +52,37 @@ def register(request):
     context['form'] = form
     return render(request, "profiles/register_profile.html", context)
 
-def login(request):
+def login_view(request):
     context = {}
-    form = LoginForm(request.POST or None)
 
     if request.method == "POST":
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-            return redirect('home')
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('create_hero')
+    else:
+        form = AuthenticationForm()
 
     context['form'] = form
     return render(request, "profiles/profile_login.html", context)
+
+
+
+    # return render(request, "profiles/profile_login.html", context)
+
+    # form = LoginForm(request.POST or None)
+    #
+    # if request.method == "POST":
+    #     if form.is_valid():
+    #         return redirect('home')
+    #
+    # context['form'] = form
+    # return render(request, "profiles/profile_login.html", context)
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
