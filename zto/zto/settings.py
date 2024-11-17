@@ -13,8 +13,6 @@ import os
 from _pydatetime import timedelta
 from pathlib import Path
 
-from zto.security.jwttoken import REST_FRAMEWORK
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -132,7 +130,7 @@ STATICFILES_DIRS = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-SESSION_COOKIE_AGE = 10
+SESSION_COOKIE_AGE = 60
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 SIMPLE_JWT = {
